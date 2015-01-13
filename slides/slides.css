@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+  font-family: 'Monserrat';
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+.remark-slide-content {
+  color: #ecf0f1;
+  background-color: #2c3e50;
+  font-size: 28px;
+}
+.remark-slide-number {
+  display: none;
+}
+.remark-code, .remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+
+a {
+  color: #bdc3c7;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ecf0f1;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  line-height: 55px;
+}
+
+img {
+  border: 2px solid #ecf0f1;
+  border-radius: 5px;
+}
+
+.nephritis {
+  background-color: #27ae60;
+}
+
+.belize {
+  background-color: #2980b9;
+}
+.orange {
+  background-color: #f39c12;
+}
+.pumpkin {
+  background-color: #d35400;
+}
+.wisteria {
+  background-color: #8e44ad;
+}
