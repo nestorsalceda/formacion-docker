@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docker · Introducción</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../slides/slides.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 1. Introducción
+---
+
+class: center, middle
+
+# ¿Qué es docker?
+
+???
+
+Un nuevo proyecto que crece bastante rápido que nos permite crear "máquinas virtuales" muy ligeras.
+
+No son máquinas virtuales, sino un chroot con esteroides.
+
+Se trata de poder automatizar el despliegue de aplicaciones en contenedores.
+
+Lo que cambia las reglas del juego es que es muy rápido. Estamos hablando que la mayoria de contenedores se lanzan el menos de 1 segundo
+
+---
+
+class: center, middle, nephritis
+
+# ¿Qué ventajas me ofrece docker?
+
+* Aislar una aplicación y sus dependencias
+* Crear una imagen y replicarla
+* Distribución de aplicaciones
+* Escalado
+* Probar y borrar
+
+???
+
+Resuelve muchos de los mismos problemas que la virtualización, pero no consume
+tantos recursos
+
+---
+
+class: center, nephritis
+
+# ¿Si me pongo el sombrero de sysadmin?
+
+* Entorno consistente
+* Conseguir mayor densidad de ejecución
+
+???
+
+Esto no es algo nuevo, si teníais algún sysadmin avispado, ya intentaba usar
+etkeeper, o cfengine.
+
+Luego se evolucióno a sistemas como puppet o chef.
+
+La cosa es evitar el "en mi máquina funciona"
+
+---
+
+class: center, middle
+
+![Docker Logo](large_v.png)
+
+???
+
+El objetivo final es crear contenedores ligeros y portables para aplicaciones,
+que se puedan ejecutar en cualquier máquina con Docker instalado
+
+Fijaros en el logotipo, que utiliza los contenedores que se utilizan en los
+sistemas logísticos
+
+---
+
+class: center, middle
+
+# ¿En qué se diferencia de la virtualización?
+
+![Docker vs Virtualization](docker_vs_fullvm.png)
+
+---
+
+class: center, middle
+
+# ¿Qué hay por debajo?
+
+* libcontainer - LXC
+* Linux kernel namespaces
+* Control groups
+* Union file system
+
+???
+
+El formato del contenedor. No es algo nuevo: Jails de FreeBSD, Zonas de Solaris,
+Linux Containers
+
+Aislamiento de espacio de trabajo (pid, net, ipc, mnt: mount, uts: timesharing)
+
+Ajuste de recursos. Limitar memoria
+
+UnionFS: Sistema de capas. Se utilizan para montar los contenedores: AUFS,
+btrfs, vfs, DeviceMapper
+
+---
+
+class: center, middle
+
+![Componentes](architecture.png)
+
+---
+
+class: center, middle
+
+#Componentes
+
+* Cliente y servidor
+* Imágenes
+* Contenedores
+* Registro
+
+???
+
+Es una aplicación cliente / servidor. Hay un API.
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script src="../../slides/slides.js"></script>
+  </body>
+</html>
+
