@@ -121,12 +121,30 @@ class: center, middle
 
 * Cliente y servidor
 * Imágenes
-* Contenedores
 * Registro
+* Contenedores
 
 ???
 
-Es una aplicación cliente / servidor. Hay un API.
+Es una aplicación cliente / servidor. Hay un API. El servidor se ejecuta como
+root.
+
+Las imágenes es con lo que se construye todo en el universo docker. Una imagen
+se construye y se lanza en un contenedor. Es como el "código fuente de tus
+contenedores". Son portables, y se pueden compartir, guardar y actualizar.
+
+En el registro es donde se guardan las imágenes, se pueden buscar y lo que mola
+es que ya hay un montón hechas.
+
+Los contenedores, salen de la ejecución de una imagen y puede contener uno o más
+contenedores. Es la parte de ejecución en el universo docker. Se cargan siempre
+igual y no importa dónde se cargan, ni lo que contienen.
+
+Ahora os voy a pedir ya que dejéis de pensar en una máquina virtual ligera, es
+una herramienta para desplegar aplicaciones. Se recomienda no poner más de un
+proceso en cada contenedor.
+
+---
 
 
     </textarea>
