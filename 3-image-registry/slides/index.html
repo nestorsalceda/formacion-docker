@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docker · Trabajo con imágenes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../slides/slides.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 3. Trabajo con imágenes
+
+???
+
+Ya hemos aprendido como instalar docker, como controlar los contenedores, así
+que vamos a por las imágenes.
+---
+
+class: center, middle
+
+# ¿Qué es una imagen?
+
+???
+
+Es algo así como un snapshot de una máquina virtual.
+
+Tiene el formato de capas, con union mount, que va añadiendo cada capa al
+sistema de fichero raíz.
+
+---
+
+class: center, middle
+
+![Docker Image](docker-filesystems-multilayer.png)
+
+???
+
+La imagen de abajo es la imagen padre, y puedes recorrer las capas hasta llegar
+a la imagen base.
+
+Cuando se lanza un contenedor desde la imagen, se monta el sistema de ficheros
+como lectura / escritura y es ahí donde nuestro proceso va a ejecutarse.
+
+---
+
+class: center, middle, nephritis
+
+# Infraestructura inmutable
+
+???
+
+Gracias a esta tecnología es como podemos implementar servidores inmutables, de
+verdad.
+
+Cuando haces un run de chef o de ansible, puede ser dependiente del momento en
+el que se ejecuta un upgrade o de una versión de un paquete que ya no está en
+repositorios. La imagen siempre es la misma imagen.
+---
+
+class: center, middle
+
+# Registro de imágenes
+
+???
+
+Al igual que se dice que Python tiene baterías incluidas, Docker tiene un montón
+de imágenes (oficiales y no oficiales) ya subidas.
+
+Nombre:tag -> ubuntu:12.04
+---
+
+class: center, middle
+
+# Imágenes privadas
+
+???
+
+Tener un servidor publico está guay, pero hay veces que tenemos información o
+datos que no queremos hacer públicos.
+
+* Repositorios privados
+* Correr nuestor registro en nuestra infraestructura
+
+---
+
+class: center, middle, pumpkin
+
+![Bender](Bender_Rodriguez.png)
+
+
+???
+
+Nos vamos por la opción de tener nuestro propio registro. Afortunadamente su
+código es abierto.
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script src="../../slides/slides.js"></script>
+  </body>
+</html>
+

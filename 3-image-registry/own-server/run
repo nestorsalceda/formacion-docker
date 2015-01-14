@@ -1,0 +1,13 @@
+#!/bin/sh
+
+docker login http://localhost:5000/
+
+docker run -it debian /bin/bash
+#Make changes
+
+docker commit $(docker ps -lq) my-debian
+docker tag test-image localhost:5000/test-image
+
+docker push localhost:5000/test-image
+
+docker pull localhost:5000/test-image
