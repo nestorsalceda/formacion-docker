@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docker · Release Workflow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../slides/slides.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 4. Release workflow
+
+???
+
+Hemos visto como descargarnos y imágenes de aplicaciones ya hechas, pero vamos a
+tener necesidades de modificarlas.
+
+---
+
+class: center, middle
+
+# ¿Cómo construyo imágenes para mis servicios?
+
+???
+
+Esta es la pregunta buena, y es aquí donde docker hace el esfuerzo. Hemos visto
+que la tecnología que utiliza por debajo no es algo nuevo, pero el sistema para
+montar las imágenes ya cambia.
+
+---
+
+class: center, middle, pomegranate
+
+# Commit
+
+???
+
+Este método no es el recomendado.
+
+Vamos a pasar por encima, para que veais cómo se hace, pero no se debe usar.
+
+---
+
+class: center, middle, nephritis
+
+# Dockerfile
+
+???
+
+Es fichero que contiene las instrucciones para construir imagenes utilizando el
+comando docker build.
+
+---
+
+class: center, middle
+
+# ¿Qué ocurre si una instrucción falla?
+
+???
+
+Podemos depurarlo yendo a la última capa
+
+---
+class: center, middle
+
+# FROM, MAINTAINER, RUN, CMD, EXPOSE, ENV, ADD, COPY, ENTRYPOINT, VOLUME, USER, WORKDIR, ONBUILD
+
+???
+
+Estas son todas las instrucciones
+
+* from: image base. La primera instruccion. Puede aparecer varias veces en un dockerfile (aunque yo no lo he visto nunca!)
+* maintainer: Pone el campo autor en las imágenes
+* run: comenta la forma con corchetes. Ejecuta una instrucción.
+** Cambio con variables de entorno: RUN [ "sh", "-c", "echo", "$HOME" ]
+* cmd: solo hay una por dockerfile (solo el último tiene efecto si hay varios). Proveer defaults para el entrypoint
+** Con la forma shell, llama con sh -c
+* expose: abrir un puerto
+* env: set variables de entorno
+* add: copia nuevo fichero o ficheros remotos
+** src dentro del contexto del build
+* copy: solo con fichero locales
+* entrypoint: el ejecutable que ejecutará el contenedor
+** No override
+* volume: crea un punto de montaje con el nombre
+* user: usuario o uid cuando se ejecuta la imagen
+* workdir: work directory para run, cmd y entrypoint
+* user: usuario o uid cuando se ejecuta la imagen
+* workdir: work directory para run, cmd y entrypoint
+* onbuild: añade un tirgger que será ejecutado en imágenes hijas
+
+---
+
+class: center, middle
+
+# Volúmenes
+
+???
+
+Son directorios especiales, que hacen un bypass del unionFS para proveer datos
+persistentes o compartidos entre contenedores.
+
+Persistentes incluso cuando estan parados.
+
+Usos:
+
+* Trabajar y testear simultáneamente
+* Cambios frecuentes y evitar un rebuild en desarrollo
+* Compartir entre contenedores
+
+---
+
+class: center, middle
+
+# Contenedores de volúmenes
+
+???
+
+Se utiliza para facilitar el compartir entre varios contenedores, con la instrucción de volumes-from
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script src="../../slides/slides.js"></script>
+  </body>
+</html>
+

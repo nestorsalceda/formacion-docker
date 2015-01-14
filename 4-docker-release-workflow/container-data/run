@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker run --name postgres_data -v /home/nestor/Projects/formacion-docker/4-docker-release-workflow/container-data/data:/var/lib/postgresql/data debian
+docker run --name postgres_db -p 5432:5432 --volumes-from postgres_data -e POSTGRES_PASSWORD=mysecret postgres

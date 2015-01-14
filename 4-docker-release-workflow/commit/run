@@ -1,0 +1,12 @@
+#!/bin/sh
+
+docker run -ti debian /bin/bash
+
+apt-get update
+apt-get install nginx
+
+docker commit <id> nestorsalceda/nginx
+
+docker run -ti -p 80:80 nestorsalceda/nginx /bin/bash
+
+http localhost:80
