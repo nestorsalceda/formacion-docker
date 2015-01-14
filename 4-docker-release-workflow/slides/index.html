@@ -120,6 +120,32 @@ class: center, middle
 
 Se utiliza para facilitar el compartir entre varios contenedores, con la instrucción de volumes-from
 
+---
+
+class: center, middle
+
+# Buenas prácticas escribiendo dockerfiles
+
+???
+
+* Los contenedores deberían ser efímeros
+* Utiliza un .dockerfile
+* Evita instalar paquetes innecesario
+* Un proceso por contenedor
+* Minimiza el número de capas
+* Argumentos multilinea
+* Entiende la caché
+** Sobre todo con copy y add
+
+* From: Utiliza repositorios oficiales
+* RUN: Separadores de lineas
+** El update junto a un install
+* EXPOSE: Utiliza puertos por defecto
+* COPY es preferible a ADD
+* Utiliza VOLUME para cosas mutables
+* Utiliza USER si no es necesario el acceso a root
+
+
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
     <script src="../../slides/slides.js"></script>
