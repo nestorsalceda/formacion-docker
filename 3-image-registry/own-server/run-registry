@@ -2,7 +2,8 @@
 
 docker run \
   -e SETTINGS_FLAVOR=local \
-  -e STORAGE_PATH=/mnt/registry \
+  -e STORAGE_PATH=/registry \
   -e SEARCH_BACKEND=sqlalchemy \
+  -v /tmp/images:/registry \
   -p 5000:5000 \
   registry

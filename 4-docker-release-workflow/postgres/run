@@ -1,0 +1,9 @@
+#!/bin/sh
+
+docker \
+  run \
+  --rm \
+  -p 5432:5432 \
+  -v /home/nestor/Projects/formacion-docker/4-docker-release-workflow/postgres/data:/var/lib/postgresql/data \
+  -e POSTGRES_PASSWORD=mysecret \
+  postgres
