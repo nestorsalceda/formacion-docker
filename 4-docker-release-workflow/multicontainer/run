@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+docker \
+  run \
+  -d \
+  --name multicontainer_db \
+  redis
+
+
+docker \
+  run \
+  -d \
+  -p 4567:4567 \
+  --name multicontainer_app \
+  --link multicontainer_db:db \
+  nestorsalceda/app
+
+
