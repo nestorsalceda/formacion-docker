@@ -1,0 +1,17 @@
+db:
+  image: redis
+
+app:
+  build: app
+  links:
+    - 'db'
+  net: host
+
+#site:
+#  image: nginx
+#  links:
+#    - 'app'
+#  volumes:
+#    - "/home/nestor/Projects/formacion-docker/4-docker-release-workflow/multicontainer/nginx-app.conf/:/etc/nginx/conf.d/default.conf"
+#  ports:
+#    - "80:80"

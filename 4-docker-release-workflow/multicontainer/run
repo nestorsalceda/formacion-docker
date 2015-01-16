@@ -7,13 +7,18 @@ docker \
   --name multicontainer_db \
   redis
 
-
 docker \
   run \
   -d \
-  -p 4567:4567 \
   --name multicontainer_app \
   --link multicontainer_db:db \
   nestorsalceda/app
 
-
+docker \
+  run \
+  -d \
+  -p 80:80 \
+  --name multicontainer_site \
+  --link multicontainer_app:app \
+  -v /home/nestor/Projects/formacion-docker/4-docker-release-workflow/multicontainer/nginx-app.conf/:/etc/nginx/conf.d/default.conf \
+  nginx
