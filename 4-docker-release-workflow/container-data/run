@@ -1,4 +1,24 @@
 #!/bin/sh
 
-docker run --name postgres_data -v /home/nestor/Projects/formacion-docker/4-docker-release-workflow/container-data/data:/var/lib/postgresql/data debian
-docker run --name postgres_db -p 5432:5432 --volumes-from postgres_data -e POSTGRES_PASSWORD=mysecret postgres
+#docker \
+#  run \
+#  --name postgres_data \
+#  -v /home/nestor/Projects/formacion-docker/4-docker-release-workflow/container-data/data:/var/lib/postgresql/data \
+#  debian
+#
+docker \
+  run \
+  -d \
+  --name postgres_db \
+  -p 5432:5432 \
+  -p 80:80 \
+  --volumes-from postgres_data \
+  -e POSTGRES_PASSWORD=mysecret \
+  postgres
+
+docker \
+  run \
+  --volumes-from postgres_data \
+  -v $(pwd):/backup \
+  debian \
+  tar cvf /backup/backup.tar /var/lib/postgresql/data
